@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="pt" xmlns="http://www.w3.org/1999/xhtml" 
+	xmlns:th="http://www.thymeleaf.org">
+	
+ <div id="card-alert" class="card red" role="alert" th:if="${#fields.hasAnyErrors()}" th:fragment="alert">
+     <div class="card-content white-text">
+       <th:block th:each="detailedError : ${#fields.detailedErrors()}">
+			<div><i class="mdi-alert-error"></i> [[${detailedError.message}]]</div>
+	   </th:block>           
+     </div>
+     <button type="button" class="close white-text" data-dismiss="alert" aria-label="Close">
+       <span aria-hidden="true">×</span>
+     </button>
+ </div>
+
+	
+</html>

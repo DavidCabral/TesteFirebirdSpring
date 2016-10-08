@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	xmlns:jf="http://jfconsultores.com.br"
+	layout:decorate="~{almoxarifado/template/template}">
+
+<head>
+<title>Cadastro de Categorias</title>
+</head>
+
+
+<div layout:fragment="conteudo">
+	<!--start container-->
+	<div class="container">
+		<form method="POST" th:object="${categoria}" th:action="@{/almoxarifado/categorias/salvar}">
+			
+			<!--PARECEEE MÁAAAAAGICA.. -->
+			<jf:message/>   
+			
+			<input type="hidden" th:field="*{id}" />
+			<div class="card-panel">
+				<h4 class="header">Categoria</h4>
+
+				<div class="row">
+					<div class="input-field col s12 m4 ">
+						<input id="nome" type="text" class="" th:field="*{nome}" jf:classforerror="nome">
+						<label for="nome" class="" jf:classforerror="nome">Nome</label>
+					</div>
+
+					<div class="input-field col s12 m4">
+						<input id="sigla" type="text" class="" th:field="*{sigla}">
+						<label for="sigla">Sigla</label>
+					</div>
+				</div>
+
+				<div class="row section">
+					<div class="input-field col s12">
+						<button class="btn waves-effect waves-light right" type="submit">
+							Salvar <i class="mdi-content-send right"></i>
+						</button>
+					</div>
+				</div>
+				
+				<br><br><br><br><br><br><br>
+			</div>
+		</form>
+	</div>
+</div>
+
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	xmlns:jf="http://jfconsultores.com.br"
+	layout:decorate="~{almoxarifado/template/template}">
+<head>
+<title>Cadastro de Almoxarifados</title>
+</head>
+<body>
+
+	<div layout:fragment="conteudo">
+		<!--start container-->
+		<div class="container">
+			<form method="POST" th:object="${almoxarifado}" th:action="@{/almoxarifado/almoxarifados/salvar}">
+			    <jf:message/>
+			    <input type="hidden" th:field="*{id}"/>
+				<div class="card-panel">
+					<h4 class="header">Almoxarifados</h4>
+
+					<div class="row">
+						<div class="input-field col s12 m4 ">
+							<input id="first_input1" type="text" class="" jf:classforerror="nome"
+								th:field="*{nome}"> <label for="first_input1" 
+								class="col s12" jf:classforerror="nome"  >Nome</label>
+						</div>
+
+						<div class="input-field col s12 m4">
+							<input id="localizacao" type="text" class="" jf:classforerror="localizacao"
+								th:field="*{localizacao}"> <label for="localizacao" class="col s12"
+								jf:classforerror="localizacao" >Localização</label>
+						</div>
+
+						<div class=" input-field switch col s12 m4">
+							<label> Desabilitado <input id="ativo" type="checkbox" 
+								th:field="*{ativo}"> <span class="lever"></span>
+								Habilitado
+							</label>
+						</div>
+					</div>
+					<div class="row section">
+						<div class="input-field col s12">
+							<textarea id="message1" class="materialize-textarea "
+								  th:field="*{descricao}"></textarea>
+							<label for="message1" class="">Descrição</label>
+						</div>
+					</div>
+
+					<div class="row section">
+						<div class="input-field col s12">
+							<button class="btn waves-effect waves-light right" type="submit" >
+								Salvar <i class="mdi-content-send right"></i>
+							</button>
+						</div>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+
+</body>
+</html>
